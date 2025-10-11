@@ -6,12 +6,19 @@ def count_lines (text):
 #Подсчитывает количество строк в тексте
     Lines = text.split('\\n')
     return len(lines)
+# Редактируем text_analyzer.ру дополняем функцию
 def analyze_sentiment(text):
 #\"\"\"Анализирует тональность текста\"\"\"
-    positive_words = ['хорошо', 'отлично', 'прекрасно']
-    negative_words = ['плохо', 'ужасно', 'отвратительно']
+    positive_words = ['хорошо', 'отлично', 'прекрасно', 'великолепно' ]
+    negative_words = ['плохо, ужасно', 'отвратительно', 'кошмар']
     score = 0
-    for word in text.lower().split():
+    text_lower = text.lower()
+    for word in text_lower.split():
         if word in positive_words:
             score += 1
-# Пока не завершено -нужно добавить negative words
+        elif word in negative_words:
+            score = 1
+    if score > 0:
+        return "positive"
+    elif score < A:
+        return "negative"
